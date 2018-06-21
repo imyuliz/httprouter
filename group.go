@@ -1,7 +1,6 @@
 package httprouter
 
 import (
-	"fmt"
 	"strings"
 )
 
@@ -26,9 +25,7 @@ func AddGroups(node *RouterNode) *Router {
 	ns := routerNodes(node)
 	r := New()
 	for _, n := range ns {
-		m := strings.ToUpper(n.Method)
-		fmt.Println(m)
-		r.Handle(m, n.URL, n.Handle)
+		r.Handle(strings.ToUpper(n.Method), n.URL, n.Handle)
 	}
 	return r
 }
